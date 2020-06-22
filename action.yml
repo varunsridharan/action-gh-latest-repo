@@ -14,7 +14,7 @@ inputs:
     description: 'Github Personal Access Token'
   SAVE_LOCATION:
     description: 'Path To Save The JSON File'
-    default: '/'
+    default: ''
   FILE_NAME:
     description: 'Repo JSON File Name'
     default: 'repos.json'
