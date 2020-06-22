@@ -1,0 +1,29 @@
+name: 'GH Latest Repo'
+description: 'Github Action That Provides Latest Public GitHub Repos From A User'
+author: 'varunsridharan'
+branding:
+  icon: 'message-square'
+  color: 'gray-dark'
+inputs:
+  GITHUB_USERNAME:
+    description: 'Github Username'
+  MAX_REPOS:
+    description: 'Max Github Repos'
+    default: '6'
+  GH_TOKEN:
+    description: 'Github Personal Access Token'
+  SAVE_LOCATION:
+    description: 'Path To Save The JSON File'
+    default: '/'
+  FILE_NAME:
+    description: 'Repo JSON File Name'
+    default: 'repos.json'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.GITHUB_USERNAME }}
+    - ${{ inputs.MAX_REPOS }}
+    - ${{ inputs.SAVE_LOCATION }}
+    - ${{ inputs.FILE_NAME }}
+    - ${{ inputs.GH_TOKEN }}
